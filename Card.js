@@ -1,14 +1,16 @@
-const ChannelCard = ({ channelName, profilePic, subscribers, channelUrl, description }) => {
+const VideoCard = ({ thumbnail, title, channel, views, uploadTime, duration, videoUrl }) => {
   return (
-    <div className="w-72 bg-gray-800 p-4 rounded-lg shadow-md flex items-center">
-      <img src={profilePic} alt={channelName} className="w-16 h-16 rounded-full mr-3" />
-      <div>
-        <a href={channelUrl} className="text-white font-semibold hover:underline">{channelName}</a>
-        <p className="text-gray-400 text-sm">{subscribers} subscribers</p>
-        <p className="text-gray-500 text-xs truncate">{description}</p>
+    <div className="w-80 bg-gray-800 p-3 rounded-lg shadow-lg">
+      <a href={videoUrl}>
+        <img src={thumbnail} alt={title} className="w-full rounded-md" />
+      </a>
+      <div className="mt-2">
+        <h3 className="text-white font-bold truncate">{title}</h3>
+        <p className="text-gray-400 text-sm">{channel} • {views} views • {uploadTime}</p>
+        <p className="text-gray-500 text-xs">Duration: {duration}</p>
       </div>
     </div>
   );
 };
 
-export default ChannelCard;
+export default VideoCard;
